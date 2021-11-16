@@ -1,0 +1,12 @@
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\bin\Debug\net6.0\Tai.Core.deps.json
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\bin\Debug\net6.0\Tai.Core.dll
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\bin\Debug\net6.0\ref\Tai.Core.dll
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\bin\Debug\net6.0\Tai.Core.pdb
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\obj\Debug\net6.0\Tai.Core.csproj.AssemblyReference.cache
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\obj\Debug\net6.0\Tai.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\obj\Debug\net6.0\Tai.Core.AssemblyInfoInputs.cache
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\obj\Debug\net6.0\Tai.Core.AssemblyInfo.cs
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\obj\Debug\net6.0\Tai.Core.csproj.CoreCompileInputs.cache
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\obj\Debug\net6.0\Tai.Core.dll
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\obj\Debug\net6.0\ref\Tai.Core.dll
+C:\Users\venet\source\repos\TaiBackend\Tai.Core\obj\Debug\net6.0\Tai.Core.pdb

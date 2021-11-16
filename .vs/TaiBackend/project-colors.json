@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "0a407c29-9fae-45c9-bf37-dcaf4f713b26": {
+      "ProjectGuid": "0a407c29-9fae-45c9-bf37-dcaf4f713b26",
+      "DisplayName": "Backend",
+      "ColorIndex": 0
+    },
+    "edc5e9c2-dc3a-4e13-9530-290472df53e4": {
+      "ProjectGuid": "edc5e9c2-dc3a-4e13-9530-290472df53e4",
+      "DisplayName": "Tai.Core",
+      "ColorIndex": 1
+    },
+    "c0686f57-3889-433c-967b-9cfb8e5819ef": {
+      "ProjectGuid": "c0686f57-3889-433c-967b-9cfb8e5819ef",
+      "DisplayName": "Tai.Infrastructure",
+      "ColorIndex": 2
+    },
+    "95b5254b-3563-4e07-a522-f3d105f8a705": {
+      "ProjectGuid": "95b5254b-3563-4e07-a522-f3d105f8a705",
+      "DisplayName": "Tai.Api",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

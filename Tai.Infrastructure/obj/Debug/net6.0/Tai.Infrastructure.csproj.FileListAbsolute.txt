@@ -1,0 +1,15 @@
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\bin\Debug\net6.0\Tai.Infrastructure.deps.json
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\bin\Debug\net6.0\Tai.Infrastructure.dll
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\bin\Debug\net6.0\ref\Tai.Infrastructure.dll
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\bin\Debug\net6.0\Tai.Infrastructure.pdb
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\bin\Debug\net6.0\Tai.Core.dll
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\bin\Debug\net6.0\Tai.Core.pdb
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\obj\Debug\net6.0\Tai.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\obj\Debug\net6.0\Tai.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\obj\Debug\net6.0\Tai.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\obj\Debug\net6.0\Tai.Infrastructure.AssemblyInfo.cs
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\obj\Debug\net6.0\Tai.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\obj\Debug\net6.0\Tai.Infrastructure.csproj.CopyComplete
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\obj\Debug\net6.0\Tai.Infrastructure.dll
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\obj\Debug\net6.0\ref\Tai.Infrastructure.dll
+C:\Users\venet\source\repos\TaiBackend\Tai.Infrastructure\obj\Debug\net6.0\Tai.Infrastructure.pdb
