@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Tai.Core.Domain;
 using Tai.Infrastructure.DTO;
+using Tai.Infrastructure.DTO.Request;
+using Tai.Infrastructure.DB.Models;
+using Tai.Infrastructure.DTO.Response;
 
 namespace Tai.Infrastructure.Mappers
 {
@@ -14,7 +17,11 @@ namespace Tai.Infrastructure.Mappers
         public static IMapper Initialize()
             => new MapperConfiguration(cfg=>
             {
-                cfg.CreateMap<User, UserDto>();
+                cfg.CreateMap<Core.Domain.User, UserDto>();
+                cfg.CreateMap<RegisterRequest, DB.Models.User>()
+                    .ForMember(dest => dest.UserName,
+                    opt => opt.MapFrom(src => src.Email));
+                cfg.CreateMap<DB.Models.User, LoginResponse>();
             })
             .CreateMapper();
     }

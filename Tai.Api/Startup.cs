@@ -11,6 +11,13 @@ using Tai.Core.Repositories;
 using Tai.Infrastructure.Infrastructure;
 using Tai.Infrastructure.Services;
 using Tai.Infrastructure.Mappers;
+using Tai.Infrastructure.DB;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Tai.Infrastructure.DB.Models;
+using System.Reflection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Tai.Infrastructure.Helper;
 
 namespace Tai.Api
 {
@@ -29,12 +36,93 @@ namespace Tai.Api
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
 
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddSingleton(AutoMapperConfig.Initialize());
+            services.AddHttpContextAccessor();
+            services.AddScoped<IDateTimeProvider, DateTimeProvider>();
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+
+            IdentityBuilder builder = services.AddIdentityCore<User>(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tai.Api", Version = "v1" });
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequiredLength = 3;
+            });
+
+
+
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tai.Api", Version = "v1" });
+            //});
+
+
+            builder = new IdentityBuilder(builder.UserType, builder.Services);
+            builder.AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.AddSignInManager<SignInManager<User>>();
+            builder.AddDefaultTokenProviders();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
+                options =>
+                {
+                    var publicAuthorizationKey = Configuration.GetSection("AppSettings:PublicKey").Value;
+                    var key = TokenHelper.BuildRsaSigningKey(publicAuthorizationKey);
+                    options.TokenValidationParameters = TokenHelper.GetTokenValidationParameters(key);
+                })
+                .AddCookie(IdentityConstants.ApplicationScheme, options =>
+                {
+                    options.SlidingExpiration = true;
+                })
+                .AddCookie(IdentityConstants.TwoFactorUserIdScheme, o =>
+                {
+                    o.Cookie.Name = IdentityConstants.TwoFactorUserIdScheme;
+                    o.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                })
+                .AddExternalCookie();
+
+            services.AddMvc();
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1",
+                    new Microsoft.OpenApi.Models.OpenApiInfo
+                    {
+                        Title = "Tai.Api",
+                        Version = "v1"
+                    });
+
+                var fileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var filePath = Path.Combine(AppContext.BaseDirectory, fileName);
+                //options.IncludeXmlComments(filePath);
+
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme (Example: 'Bearer 12345abcdef')",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
+
             });
         }
 
